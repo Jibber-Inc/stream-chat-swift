@@ -14,10 +14,6 @@ let package = Package(
         .library(
             name: "StreamChat",
             targets: ["StreamChat"]
-        ),
-        .library(
-            name: "StreamChatUI",
-            targets: ["StreamChatUI"]
         )
     ],
     targets: [
@@ -25,12 +21,6 @@ let package = Package(
             name: "StreamChat",
             exclude: ["README.md", "Info.plist"] + streamChatSourcesExcluded,
             resources: [.copy("Database/StreamChatModel.xcdatamodeld")]
-        ),
-        .target(
-            name: "StreamChatUI",
-            dependencies: ["StreamChat"],
-            exclude: ["README.md", "Info.plist", "Generated/L10n_template.stencil"] + streamChatUIFilesExcluded,
-            resources: [.process("Resources")]
         )
     ]
 )
